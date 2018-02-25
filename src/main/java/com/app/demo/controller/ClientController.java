@@ -19,6 +19,8 @@ public class ClientController {
 	
 	@Autowired
 	private ClientService clientService;
+	
+	private String[] listSex= {"Man","Woman"};
 
 	@RequestMapping(value = "/client")
 	public String client(Map<String, Object> model) {
@@ -30,6 +32,7 @@ public class ClientController {
 	@RequestMapping("client/new")
 	public String newProduct(Model model) {
 		model.addAttribute("client", new Client());
+		model.addAttribute("listSex", listSex);
 		return "clientForm";
 	}
 
@@ -42,6 +45,7 @@ public class ClientController {
 	@RequestMapping("client/edit/{id}")
 	public String edit(@PathVariable Long id, Model model) {
 		model.addAttribute("client", clientService.getClientById(id));
+		model.addAttribute("listSex", listSex);
 		return "clientForm";
 	}
 
