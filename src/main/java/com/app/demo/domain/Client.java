@@ -17,6 +17,7 @@ public class Client {
     private String lastName;
     private String sex;
     private String email;
+    
     @ManyToOne
     private Agency agency;
     

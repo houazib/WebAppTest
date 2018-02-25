@@ -13,10 +13,28 @@
     </div>
     <div class="col-sm-8 text-left"> 
       <h1>Agency List</h1>
-      <p>Web Application test</p>
-      <hr />
-      <h3>Test</h3>
-      <p>Test...</p>
+      
+    <table id="agencyTable" class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="agency : ${agencyList}">
+                <td th:text="${agency.id}"></td>
+                <td th:text="${agency.name}">agency</td>
+                <td th:text="${agency.address}">Montreal</td>
+                <td><a th:href="@{|/agency/edit/${agency.id}|}">Edit</a></td>
+				<td><a th:href="@{|/agency/delete/${agency.id}|}">Delete</a></td>
+            </tr>
+        </tbody>
+     </table>
+     
+     <a href="#" th:href="@{/agency/new}">New agency</a>
+     
     </div>
     <div class="col-sm-2">
     </div>
